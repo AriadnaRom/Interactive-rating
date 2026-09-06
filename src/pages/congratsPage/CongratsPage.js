@@ -33,6 +33,11 @@ export class CongratsPage extends LitElement {
     selectedRating: {
       type: Number,
     },
+
+    ratingOption: {
+      type: String,
+      attribute: "rating-option",
+    },
   };
 
   constructor() {
@@ -42,27 +47,34 @@ export class CongratsPage extends LitElement {
     this.icon = "";
     this.info = "";
     this.selectedRating = 0;
+    this.ratingOption = "";
   }
 
   _renderContent() {
+    //SE HA AGREGADO LA VARIABLE info_text PARA CONCATENAR EL TEXTO DE LA CALIFICACION SELECCIONADA Y EL TEXTO DE RATINGOPTION
+    const info_text = `${this.info} ${this.selectedRating} ${this.ratingOption}`;
+
     return html`
       <main class="card-content">
         <div class="card">
           <div class="icon-wrapper">
             <type-icon .src=${illustration}></type-icon>
           </div>
-
+          <div class="selected-rating">
+            <type-text .text=${info_text}></type-text>
+          </div>
+          <div class ="regrets-title">
           <type-text
             tag="h1"
             weight="semibold"
             .text=${this.regretsTitle}
           ></type-text>
-
-          <type-text .text=${this.regretsDescription}></type-text>
-
-          <type-text
-          .text=${`${this.selectedRating} out of 5`}
-          ></type-text>
+          </div>
+          <div class="description">
+            <type-text size="ml"
+            .text=${this.regretsDescription}>
+          </type-text>
+          </div>
         </div>
       </main>
     `;

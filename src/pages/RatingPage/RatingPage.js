@@ -1,11 +1,11 @@
 import { LitElement, html, css, unsafeCSS } from "lit";
 
 import styles from "./RatingPage.scss?inline";
-import "../components/type-text/type-text.js";
-import "../components/type-button/type-button.js";
-import "../components/type-icon/type-icon.js";
-import { RATINGS } from "../constants/rating.js";
-import starIcon from "../assets/images/icon-star.svg?url";
+import "../../components/type-text/type-text.js";
+import "../../components/type-button/type-button.js";
+import "../../components/type-icon/type-icon.js";
+import { RATINGS } from "../../constants/rating.js";
+import starIcon from "../../assets/images/icon-star.svg?url";
 
 export class RatingPage extends LitElement {
   static styles = css`
@@ -46,12 +46,19 @@ export class RatingPage extends LitElement {
   }
 
   _selectRating(event) {
-    this.selectedRating = Number(event.detail);
+    const rating = Number(event.detail);
+    if (this.selectedRating === rating) {
+      this.selectedRating = 0;
+    } else {
+      this.selectedRating = rating;
+    }
   }
 
   _submitRating() {
-    if (this.selectedRating === 0) return;
-
+    if (this.selectedRating === 0) {
+      alert("Please select a rating before submitting.");
+      return;
+    }
     this.dispatchEvent(
       new CustomEvent("Rating-page-submitted", {
         bubbles: true,
@@ -75,7 +82,9 @@ export class RatingPage extends LitElement {
             .text=${this.titleName}
           ></type-text>
 
-          <type-text .text=${this.description}></type-text>
+          <div class="description">
+            <type-text size="ml" .text=${this.description}></type-text>
+          </div>
 
           <div class="ratings">
             ${RATINGS.map(
