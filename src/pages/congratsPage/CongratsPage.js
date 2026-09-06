@@ -33,6 +33,11 @@ export class CongratsPage extends LitElement {
     selectedRating: {
       type: Number,
     },
+
+    ratingOption: {
+      type: String,
+      attribute: "rating-option",
+    },
   };
 
   constructor() {
@@ -42,6 +47,7 @@ export class CongratsPage extends LitElement {
     this.icon = "";
     this.info = "";
     this.selectedRating = 0;
+    this.ratingOption = "";
   }
 
   _renderContent() {
@@ -62,7 +68,7 @@ export class CongratsPage extends LitElement {
 
           <div class="selected-rating">
             <type-text
-              .text=${`${this.info} ${this.selectedRating} out of 5`}
+              .text=${`${this.info} ${this.selectedRating} ${this.ratingOption}`}
             ></type-text>
           </div>
         </div>

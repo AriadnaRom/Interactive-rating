@@ -41,6 +41,7 @@ export class MyRating extends LitElement {
         .regretsDescription=${es.regretsSubtitle}
         .info=${es.rating}
         .selectedRating=${this._selectedRating}
+        .ratingOption=${es.ratingOption}
       ></congrats-page>
     `;
   }
