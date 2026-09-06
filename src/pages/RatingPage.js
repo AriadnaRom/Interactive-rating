@@ -50,8 +50,6 @@ export class RatingPage extends LitElement {
   }
 
   _submitRating() {
-    if (this.selectedRating === 0) return;
-
     this.dispatchEvent(
       new CustomEvent("Rating-page-submitted", {
         bubbles: true,

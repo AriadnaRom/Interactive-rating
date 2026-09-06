@@ -60,9 +60,11 @@ export class CongratsPage extends LitElement {
 
           <type-text .text=${this.regretsDescription}></type-text>
 
-          <type-text
-          .text=${`${this.selectedRating} out of 5`}
-          ></type-text>
+          <div class="selected-rating">
+            <type-text
+              .text=${`${this.info} ${this.selectedRating} out of 5`}
+            ></type-text>
+          </div>
         </div>
       </main>
     `;
