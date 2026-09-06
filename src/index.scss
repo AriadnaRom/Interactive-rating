@@ -10,10 +10,12 @@ $font-family: "Overpass", sans-serif;
   color-scheme: dark;
   --color-primary: hsl(25, 97%, 53%);
   --color-primary-hover: hsl(25, 97%, 63%);
-  --color-surface: hsl(213, 19%, 18%);
-  --color-muted:#262f38;
+  --color-surface: #323b48;
+  --color-muted:#2d3642;
   --text-color: hsl(217, 12%, 63%);
   --color-text: hsl(0, 100%, 100%);
+  --color-text-muted:black
+  --color-background: hsl(217, 33%, 17%)
   --color-border: transparent;
   --color-shadow: transparent;
   background-color: hsl(216, 12%, 8%);

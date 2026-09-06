@@ -46,7 +46,8 @@ export class RatingPage extends LitElement {
   }
 
   _selectRating(event) {
-    this.selectedRating = Number(event.detail);
+    const rating = Number(event.detail);
+    this.selectedRating = this.selectedRating === rating ? 0 : rating;
   }
 
   _submitRating() {
@@ -73,7 +74,9 @@ export class RatingPage extends LitElement {
             .text=${this.titleName}
           ></type-text>
 
-          <type-text .text=${this.description}></type-text>
+          <div class="description">
+            <type-text size="ml" .text=${this.description}></type-text>
+          </div>
 
           <div class="ratings">
             ${RATINGS.map(

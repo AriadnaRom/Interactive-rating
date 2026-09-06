@@ -7,9 +7,14 @@
 
 .card {
   width: min(100%, 412px);
-  padding: 2rem;
-  border-radius: 3rem;
-  background: hsl(217, 33%, 17%);
+   min-height: 420px;
+  padding: 1.75rem;
+ border-radius: 2rem;
+ background:hsl(217, 33%, 17%);
+
+}
+.description {
+  max-width: 403px;
 }
 
 .icon-wrapper {
@@ -17,7 +22,7 @@
   height: 3rem;
   display: grid;
   place-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   border-radius: 50%;
   background-color: var(--color-muted);
 }
@@ -34,13 +39,8 @@
   margin: 2rem 0;
 }
 
-.ratings type-button {
-  flex: 1;
-}
 
-.card > type-button {
-  width: 100%;
-}
+
 
 @media (max-width: 480px) {
   .card {
