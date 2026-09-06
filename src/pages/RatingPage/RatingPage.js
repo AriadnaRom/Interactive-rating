@@ -1,11 +1,11 @@
 import { LitElement, html, css, unsafeCSS } from "lit";
 
 import styles from "./RatingPage.scss?inline";
-import "../components/type-text/type-text.js";
-import "../components/type-button/type-button.js";
-import "../components/type-icon/type-icon.js";
-import { RATINGS } from "../constants/rating.js";
-import starIcon from "../assets/images/icon-star.svg?url";
+import "../../components/type-text/type-text.js";
+import "../../components/type-button/type-button.js";
+import "../../components/type-icon/type-icon.js";
+import { RATINGS } from "../../constants/rating.js";
+import starIcon from "../../assets/images/icon-star.svg?url";
 
 export class RatingPage extends LitElement {
   static styles = css`
@@ -47,10 +47,18 @@ export class RatingPage extends LitElement {
 
   _selectRating(event) {
     const rating = Number(event.detail);
-    this.selectedRating = this.selectedRating === rating ? 0 : rating;
+    if (this.selectedRating === rating) {
+      this.selectedRating = 0;
+    } else {
+      this.selectedRating = rating;
+    }
   }
 
   _submitRating() {
+    if (this.selectedRating === 0) {
+      alert("Please select a rating before submitting.");
+      return;
+    }
     this.dispatchEvent(
       new CustomEvent("Rating-page-submitted", {
         bubbles: true,

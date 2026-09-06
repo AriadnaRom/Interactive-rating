@@ -1,3 +1,5 @@
+@use "../../utils/units.scss" as *;
+
 .card-content {
   min-height: 100vh;
   display: grid;
@@ -5,8 +7,8 @@
 }
 
 .card {
-  width: min(100%, 412px);
-  min-height: 420px;
+  width: min(100%, rem(412));
+  min-height: rem(420);
   padding: 2rem;
   border-radius: 2rem;
   background:hsl(217, 33%, 17%);
@@ -42,7 +44,7 @@ padding: 0.4rem 1rem;
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: rem(480)) {
   .card {
     padding: 1.5rem;
   }

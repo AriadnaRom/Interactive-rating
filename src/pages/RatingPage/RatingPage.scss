@@ -1,3 +1,5 @@
+@use "../../utils/units.scss" as *;
+
 .card-content {
   min-height: 100vh;
   display: grid;
@@ -6,24 +8,23 @@
 }
 
 .card {
-  width: min(100%, 412px);
-   min-height: 420px;
+  width: min(100%, rem(412));
+  min-height: rem(420);
   padding: 1.75rem;
- border-radius: 2rem;
- background:hsl(217, 33%, 17%);
-
+  border-radius: 2rem;
+  background: hsl(217, 33%, 17%);
 }
 .description {
-  max-width: 403px;
+  max-width: rem(403);
 }
 
 .icon-wrapper {
-  width: 3rem;
-  height: 3rem;
+  width: rem(48);
+  height: rem(48);
   display: grid;
   place-items: center;
   margin-bottom: 2.5rem;
-  border-radius: 50%;
+  border-radius: rem(50);
   background-color: var(--color-muted);
 }
 
@@ -39,10 +40,7 @@
   margin: 2rem 0;
 }
 
-
-
-
-@media (max-width: 480px) {
+@media (max-width: rem(480)) {
   .card {
     padding: 1.5rem;
   }

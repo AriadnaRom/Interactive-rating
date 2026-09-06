@@ -1,5 +1,5 @@
 import { LitElement, html } from "lit";
-import "./pages/RatingPage.js";
+import "./pages/RatingPage/RatingPage.js";
 import "./pages/congratsPage/CongratsPage.js";
 import { es } from "./locales/locale_es.js";
 
@@ -22,7 +22,7 @@ export class MyRating extends LitElement {
     };
     return steps[page]?.() ?? html``;
   }
-//page 1
+  //page 1
   _renderRatingPage() {
     return html`
       <rating-page
@@ -33,7 +33,7 @@ export class MyRating extends LitElement {
       ></rating-page>
     `;
   }
-//page 2
+  //page 2
   _renderCongratsPage() {
     return html`
       <congrats-page
@@ -52,11 +52,7 @@ export class MyRating extends LitElement {
   }
 
   _renderContent() {
-    return html`
-      <main>
-      ${this._renderStep(this._step)}
-      
-      </main>`;
+    return html` <main>${this._renderStep(this._step)}</main>`;
   }
 
   render() {
